@@ -33,7 +33,7 @@ public class DatabaseConnectionFactory {
       
       //create Tomcat specific pool properties
       PoolProperties p = new PoolProperties();
-      p.setUrl("jdbc:mysql://" + dbProperties.getProperty("db_host") + ":" + dbProperties.getProperty("db_port") + "/" + dbProperties.getProperty("db_name"));
+      p.setUrl("jdbc:mysql://" + dbProperties.getProperty("db_host") + ":" + dbProperties.getProperty("db_port") + "/" + dbProperties.getProperty("db_name") + "?autoReconnect=true");
       
       p.setDriverClassName(dbProperties.getProperty("db_driver_class_name"));
       p.setUsername(dbProperties.getProperty("db_user_name"));
