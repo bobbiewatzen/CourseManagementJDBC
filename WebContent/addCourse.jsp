@@ -22,7 +22,17 @@
         <c:set var="errMsg" value="Invalid course details. Please try again"/>
       </c:when>
       <c:otherwise>
-        <c:redirect url="listCourse.jsp"/>
+        <c:catch var="addCourseException">
+          ${courseBean.addCourse()}
+        </c:catch>
+        <c:choose>
+          <c:when test="${addCourseException != null}">
+            <c:set var="errMsg" value="${addCourseException.message}" />
+          </c:when>
+          <c:otherwise>
+            <c:redirect url="listCourse.jsp"/>
+          </c:otherwise>
+        </c:choose>
       </c:otherwise>
     </c:choose>
   </c:if>

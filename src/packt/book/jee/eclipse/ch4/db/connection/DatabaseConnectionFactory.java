@@ -24,7 +24,7 @@ public class DatabaseConnectionFactory {
    * Initializes the data source and save it in an instance variable
    */
   public synchronized void init() throws IOException {
-    if (dataSource == null) return;
+    if (dataSource != null) return;
     
     //load db.properties file first
     try (InputStream inStream = this.getClass().getClassLoader().getResourceAsStream("db.properties")) {
