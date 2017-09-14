@@ -8,6 +8,7 @@ public class Course {
   private int id;
   private String name;
   private int credits;
+  private int teacherId;
   private Teacher teacher;
   //private CourseDAO courseDAO = new CourseDAO();
   
@@ -46,5 +47,13 @@ public class Course {
   }  
   public void setTeacher(Teacher teacher) {
 	this.teacher = teacher;
+  }
+
+  public int getTeacherId() {
+    return teacherId;
+  }
+
+  public void setTeacherId(int teacherId) {
+    this.teacherId = teacherId;
   }
 }
