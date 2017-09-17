@@ -30,6 +30,9 @@ public class CourseDAO {
     Course course = null;
     List<Course> courses = new ArrayList<>();
     String sql = "SELECT Course.id AS courseId, Course.name AS courseName, Course.credits AS credits, Teacher.id AS teacherId, Teacher.first_name AS firstName, Teacher.last_name AS lastName, Teacher.designation AS designation " + "FROM Course LEFT OUTER JOIN Teacher " + "ON Course.Teacher_id = Teacher.id " + "ORDER BY Course.name;";
+    /*try {
+  	  Thread.sleep(5000);
+    } catch (InterruptedException e) {}*/
     
     try (Connection con = DatabaseConnectionFactory.getConnectionFactory().getConnection();
     Statement stmt = con.createStatement();
@@ -52,6 +55,10 @@ public class CourseDAO {
         teacher.setDesignation(rs.getString("designation"));
         course.setTeacher(teacher);
       }
+      /*
+      try {
+    	Thread.sleep(5000);
+      } catch (InterruptedException e) {}*/
       return courses;
     }
   }
